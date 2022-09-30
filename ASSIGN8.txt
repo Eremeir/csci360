@@ -1,0 +1,237 @@
+
+                   J E S 2  J O B  L O G  --  S Y S T E M  2 9 6 4  --  N O D E  S V S C J E S 2        
+
+ 
+20.01.17 JOB03202 ---- THURSDAY,  21 JUL 2022 ----
+20.01.17 JOB03202  IRR010I  USERID KC03ABA  IS ASSIGNED TO THIS JOB.
+20.01.18 JOB03202  ICH70001I KC03ABA  LAST ACCESS AT 20:00:46 ON THURSDAY, JULY 21, 2022
+20.01.18 JOB03202  $HASP373 KC03ABAA STARTED - INIT 1    - CLASS A        - SYS 2964
+20.01.18 JOB03202  -                                      -----TIMINGS (MINS.)------                          -----PAGING COUNTS----
+20.01.18 JOB03202  -STEPNAME PROCSTEP    RC   EXCP   CONN       TCB       SRB  CLOCK          SERV  WORKLOAD  PAGE  SWAP   VIO SWAPS
+20.01.18 JOB03202  -JSTEP01              00     42      3       .00       .00     .0             7  BATCH        0     0     0     0
+20.01.18 JOB03202  -KC03ABAA ENDED.  NAME-M.Borek              TOTAL TCB CPU TIME=      .00 TOTAL ELAPSED TIME=    .0
+20.01.18 JOB03202  $HASP395 KC03ABAA ENDED - RC=0000
+
+------ JES2 JOB STATISTICS ------
+
+
+  21 JUL 2022 JOB EXECUTION DATE
+
+
+          104 CARDS READ
+
+
+          186 SYSOUT PRINT RECORDS
+
+
+            0 SYSOUT PUNCH RECORDS
+
+
+           17 SYSOUT SPOOL KBYTES
+
+
+         0.00 MINUTES EXECUTION TIME
+!! END OF JES SPOOL FILE !!
+       1 //KC03ABAA JOB ,'M.Borek',MSGCLASS=H                                    JOB03202
+       2 //JSTEP01  EXEC PGM=ASSIST                                                      
+       3 //STEPLIB  DD DSN=KC00NIU.ASSIST.LOADLIB,DISP=SHR                               
+       4 //SYSPRINT DD SYSOUT=*                                                          
+       5 //SYSIN    DD *                                                                 
+         //*                                                                             
+         //* THE FOLLOWING IS THE INPUT DATA SET                                         
+         //*                                                                             
+       6 //FT05F001 DD DSN=KC02322.CSCI360.DATASU22(DATA8),DISP=SHR                      
+         //*                                                                             
+         //* THE FOLLOWING IS THE OUTPUT DATA SET                                        
+         //*                                                                             
+       7 //FT06F001 DD SYSOUT=*                                                          
+         //*                                                                             
+       8 //                                                                              
+!! END OF JES SPOOL FILE !!
+ICH70001I KC03ABA  LAST ACCESS AT 20:00:46 ON THURSDAY, JULY 21, 2022
+IEFA111I KC03ABAA IS USING THE FOLLOWING JOB RELATED SETTINGS:
+         SWA=ABOVE,TIOT SIZE=32K,DSENQSHR=DISALLOW,GDGBIAS=JOB
+IEF236I ALLOC. FOR KC03ABAA JSTEP01
+IGD103I SMS ALLOCATED TO DDNAME STEPLIB
+IEF237I JES2 ALLOCATED TO SYSPRINT
+IEF237I JES2 ALLOCATED TO SYSIN
+IGD103I SMS ALLOCATED TO DDNAME FT05F001
+IEF237I JES2 ALLOCATED TO FT06F001
+IEF142I KC03ABAA JSTEP01 - STEP WAS EXECUTED - COND CODE 0000
+IGD104I KC00NIU.ASSIST.LOADLIB                       RETAINED,  DDNAME=STEPLIB 
+IEF285I   KC03ABA.KC03ABAA.JOB03202.D0000102.?         SYSOUT        
+IEF285I   KC03ABA.KC03ABAA.JOB03202.D0000101.?         SYSIN         
+IGD104I KC02322.CSCI360.DATASU22                     RETAINED,  DDNAME=FT05F001
+IEF285I   KC03ABA.KC03ABAA.JOB03202.D0000103.?         SYSOUT        
+IEF373I STEP/JSTEP01 /START 2022202.2001
+IEF032I STEP/JSTEP01 /STOP  2022202.2001 
+        CPU:     0 HR  00 MIN  00.00 SEC    SRB:     0 HR  00 MIN  00.00 SEC    
+        VIRT:   584K  SYS:   252K  EXT:        0K  SYS:    11504K
+        ATB- REAL:                  1056K  SLOTS:                     0K
+             VIRT- ALLOC:      13M SHRD:       0M
+IEF375I  JOB/KC03ABAA/START 2022202.2001
+IEF033I  JOB/KC03ABAA/STOP  2022202.2001 
+        CPU:     0 HR  00 MIN  00.00 SEC    SRB:     0 HR  00 MIN  00.00 SEC    
+!! END OF JES SPOOL FILE !!
+
+*** ASSIST 4.0/A2-05/15/82  470/V7A/0:OS/VS2  INS=SDFP7/X=BGHO, CHECK/TRC/=1180, OPTS=CDKMPR FROM PENN ST*NIU COMPSCI*LT            
+
+                                                                                                                                    
+
+                                                                                                               PAGE    1            
+
+  LOC  OBJECT CODE    ADDR1 ADDR2  STMT   SOURCE STATEMENT                                                                          
+                                      2 *****************************************************************                           
+                                      3 *                                                               *                           
+                                      4 *  CSCI 360-1             ASSIGNMENT 8            SUMMER 2022   *                           
+                                      5 *                                                               *                           
+                                      6 *  PROGRAMMER NAME: MATT BOREK                                  *                           
+                                      7 *                                                               *                           
+                                      8 *  DATE 7/27/2022:                                              *                           
+                                      9 *                                                               *                           
+                                     10 *  PROGRAM NAME: PACKED DECIMALS TEST                           *                           
+                                     11 *                                                               *                           
+                                     12 *  FUNCTION: CALCULATE GROSS PAY FROM EMPLOYEE RECORDS          *                           
+                                     13 *                                                               *                           
+                                     14 *****************************************************************                           
+                                     15 *                                                                                           
+000000                               16 PAYROLL2 CSECT                                                                              
+                                     17 *                                                                                           
+                                     18 *  STANDARD ENTRY LINKAGE WITH R12 AS BASE REGISTER                                         
+                                     19 *                                                                                           
+000000 90EC D00C            0000C    20          STM   14,12,12(13)  SAVE REGS IN CALLER'S SAVE AREA                                
+000004 18CF                          21          LR    12,15         COPY CSECT ADDR INTO R12                                       
+000000                               22          USING PAYROLL2,12   ESTABLISH R12 AS THE BASE REG                                  
+000006 41E0 C0A8            000A8    23          LA    14,SAVEREGS   R14 POINTS TO THIS CSECT'S SAVE AREA                           
+00000A 50E0 D008            00008    24          ST    14,8(,13)     STORE ADDR OF THIS CSECT'S SAVE AREA                           
+00000E 50D0 E004            00004    25          ST    13,4(,14)     STORE ADDR OF CALLER'S SAVE AREA                               
+000012 18DE                          26          LR    13,14         POINT R13 AT THIS CSECT'S SAVE AREA                            
+                                     27 *                                                                                           
+                                     28 *                                                                                           
+000014 E000 C185 0050 00185          29          XREAD RECORD,80      READ NEXT EMPLOYEE RECORD                                     
+00001A 4740 C086            00086    30 LOOP1    BC    B'0100',ENDLOOP1  BRANCH TO ENDLOOP1 IF EOF                                  
+                                     31 *                                                                                           
+00001E 9240 C101      00101          32          MVI   DETAIL+1,C' '     SET ALL BUT FIRST BYTE                                     
+000022 D282 C102 C101 00102 00101    33          MVC   DETAIL+2(131),DETAIL+1   TO SPACES                                           
+000028 D218 C101 C185 00101 00185    34          MVC   DETAIL+1(25),RECORD      PUSH NAME TO PRINT                                  
+00002E D204 C11F C19F 0011F 0019F    35          MVC   DETAIL+31(5),RECORD+26   PUSH IDNUMBER TO PRINT                              
+                                     36 *                                                                                           
+000034 F224 C0F4 C1A4 000F4 001A4    37          PACK  PACKPAY(3),RECORD+31(5)  PACK PAYRATE ZONED DEC                              
+00003A F224 C0F7 C1A9 000F7 001A9    38          PACK  PACKHRS(3),RECORD+36(5)  PACK HOURS ZONED DEC                                
+                                     39 *                                                                                           
+000040 D206 C129 C098 00129 00098    40          MVC   DETAIL+41(7),=X'402020214B2020'  MOVE PATTERN TO PRINT                       
+000046 DE06 C129 C0F4 00129 000F4    41          ED    DETAIL+41(7),PACKPAY       FILL PATTERN WITH PAY P.DEC                       
+                                     42 *                                                                                           
+00004C D206 C135 C098 00135 00098    43          MVC   DETAIL+53(7),=X'402020214B2020'  MOVE PATTERN TO PRINT                       
+000052 DE06 C135 C0F7 00135 000F7    44          ED    DETAIL+53(7),PACKHRS       FILL PATTERN WITH HRS P.DEC                       
+                                     45 *                                                                                           
+000058 F852 C0FA C0F4 000FA 000F4    46          ZAP   PACKGRS(6),PACKPAY(3)  MOVE PAYRATE TO LARGER P.DEC                          
+00005E FC52 C0FA C0F7 000FA 000F7    47          MP    PACKGRS(6),PACKHRS(3)  MILTI PAYRATE BY HOURS                                
+000064 F055 C0FA 003E 000FA 0003E    48          SRP   PACKGRS(6),64-2,5      ROUND TO TWO DECIMAL PLACES                           
+00006A D208 C145 C09F 00145 0009F    49          MVC   DETAIL+69(9),=X'4020202020214B2020'   PATTERN TO PRINT                       
+000070 DE08 C145 C0FC 00145 000FC    50          ED    DETAIL+69(9),PACKGRS+2  FILL PATT WITH GROSS PAY P.DEC                       
+                                     51 *                                                                                           
+000076 E020 C100 0085 00100          52          XPRNT DETAIL,133     PRINT THE EMPLOYEE DETAIL RECORD                              
+                                     53 *                                                                                           
+
+                                                                                                               PAGE    2            
+
+  LOC  OBJECT CODE    ADDR1 ADDR2  STMT   SOURCE STATEMENT                                                                          
+00007C E000 C185 0050 00185          54          XREAD RECORD,80      READ NEXT EMPLOYEE RECORD                                     
+                                     55 *                                                                                           
+000082 47F0 C01A            0001A    56          BC    B'1111',LOOP1  BRANCH TO TOP OF LOOP1 TO CHECK EOF                           
+                                     57 *                                                                                           
+000086                               58 ENDLOOP1 DS    0H                                                                           
+                                     59 *                                                                                           
+                                     60 *                                                                                           
+                                     61 *  STANDARD EXIT LINKAGE WITH RC OF 0                                                       
+                                     62 *                                                                                           
+000086 1BFF                          63          SR    15,15        R15 = RETURN CODE OF 0                                          
+000088 58D0 D004            00004    64          L     13,4(,13)    POINT R13 TO CALLER'S SAVE AREA                                 
+00008C 58E0 D00C            0000C    65          L     14,12(,13)   RESTORE REGISTER 14                                             
+000090 980C D014            00014    66          LM    0,12,20(13)  RESTORE R0 THRU R12                                             
+                                     67 *                                                                                           
+000094 07FE                          68          BR    14           RETURN TO CALLER                                                
+                                     69 *                                                                                           
+                                     70          LTORG              LITERAL ORGANIZATION                                            
+000098 402020214B2020                71                =X'402020214B2020'                                                           
+00009F 4020202020214B20              72                =X'4020202020214B2020'                                                       
+                                     73 *                                                                                           
+0000A8                               74 SAVEREGS DS    19F          PROGRAM'S REGISTER SAVE AREA                                    
+                                     75 *                                                                                           
+0000F4 00000C                        76 PACKPAY  DC    PL3'0'       PACKED DECI STORAGE FOR PAYRATE                                 
+0000F7 00000C                        77 PACKHRS  DC    PL3'0'       PACKED DECI STORAGE FOR PAYHOURS                                
+0000FA 00000000000C                  78 PACKGRS  DC    PL6'0'       PACKED DECI STORAGE FOR GROSS PAY                               
+                                     79 *                                                                                           
+                                     80 * THE FOLLOWING LINES ARE THE DEFINITION FOR THE OUTPUT DETAIL                              
+                                     81 *                                                                                           
+000100 F0                            82 DETAIL   DC    C'0'   CARRIAGE CONTROL CHARACTER                                            
+000101                               83          DS    CL132  ROOM FOR REMAINING OUTPUT                                             
+                                     84 *                                                                                           
+                                     85 *  THE FOLLOWING IS THE BUFFER FOR THE INPUT RECORD                                         
+                                     86 *                                                                                           
+000185                               87 RECORD   DS    CL80   BUFFER FOR RECORD READ FROM INPUT FILE                                
+                                     88 *                                                                                           
+                                     89 *                                                                                           
+                                     90          END   PAYROLL2                                                                     
+
+***  NO   STATEMENTS FLAGGED -  NO   WARNINGS,  NO   ERRORS                                                                         
+
+*** DYNAMIC CORE AREA USED:  LOW:    3872 HIGH:     576 LEAVING:  489120 FREE BYTES. AVERAGE:       48 BYTES/STMT ***               
+
+*** ASSEMBLY TIME =    0.000 SECS,    91000 STATEMENTS/SEC ***                                                                      
+
+*** PROGRAM EXECUTION BEGINNING - ANY OUTPUT BEFORE EXECUTION TIME MESSAGE IS PRODUCED BY USER PROGRAM ***                          
+
+WOLFGANG AMADEUS MOZART       12345       15.80       25.50            402.90                                                       
+
+RICHARD STRAUSS               23456       19.80       70.10           1387.98                                                       
+
+AMY BEACH                     22132       10.80       31.20            336.96                                                       
+
+DAME ETHEL SMYTHE             65465       22.80       15.90            362.52                                                       
+
+PETER ILYICH TCHAIKOVSKY      44560       23.28       34.07            793.15                                                       
+
+ANTON BRUCKNER                99870       22.80       21.00            478.80                                                       
+
+LUDWIG VAN BEETHOVEN          13345       15.80       25.50            402.90                                                       
+
+JOHANNES BRAHMS               24456       19.80       80.01           1584.20                                                       
+
+BELA BARTOK                   22532       10.80       31.20            336.96                                                       
+
+MAX REGER                     11465       22.80       15.90            362.52                                                       
+
+SAMUEL BARBER                 13360       23.28       34.07            793.15                                                       
+
+GIUSEPPE VERDI                99873       22.80       21.00            478.80                                                       
+
+JOHANN SEBASTIAN BACH         12342       15.80       25.50            402.90                                                       
+
+JOSEPH HAYDN                  23452       19.80       20.01            396.20                                                       
+
+GEORG FRIEDRICH HANDEL        22131       10.80       31.20            336.96                                                       
+
+NIKOLAI RIMSKY-KORSAKOV       44378       23.28       34.07            793.15                                                       
+
+EDWARD ELGAR                  65411       22.80       15.90            362.52                                                       
+
+CLAUDE DEBUSSY                99855       22.80       21.00            478.80                                                       
+
+ANTONIN DVORAK                13346       15.80       25.50            402.90                                                       
+
+THOMAS TALLIS                 24457       19.80       60.01           1188.20                                                       
+
+RALPH VAUGHAN WILLIAMS        22538       10.80       31.20            336.96                                                       
+
+RICHARD WAGNER                11477       22.80       15.90            362.52                                                       
+
+FREDERIC CHOPIN               17777       23.28       34.07            793.15                                                       
+
+JOAN TOWER                    99211       22.80       21.00            478.80                                                       
+
+*** EXECUTION TIME =    0.000 SECS.       469 INSTRUCTIONS EXECUTED -   469000 INSTRUCTIONS/SEC ***                                 
+
+*** AM004 - NORMAL USER TERMINATION BY RETURN ***                                                                                   
+!! END OF JES SPOOL FILE !!

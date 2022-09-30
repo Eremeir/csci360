@@ -1,0 +1,121 @@
+
+                   J E S 2  J O B  L O G  --  S Y S T E M  2 9 6 4  --  N O D E  S V S C J E S 2        
+
+ 
+18.50.23 JOB09400 ---- WEDNESDAY, 29 JUN 2022 ----
+18.50.23 JOB09400  IRR010I  USERID KC03ABA  IS ASSIGNED TO THIS JOB.
+18.50.23 JOB09400  ICH70001I KC03ABA  LAST ACCESS AT 18:50:19 ON WEDNESDAY, JUNE 29, 2022
+18.50.24 JOB09400  $HASP373 KC03ABAA STARTED - INIT 1    - CLASS A        - SYS 2964
+18.50.24 JOB09400  -                                      -----TIMINGS (MINS.)------                          -----PAGING COUNTS----
+18.50.24 JOB09400  -STEPNAME PROCSTEP    RC   EXCP   CONN       TCB       SRB  CLOCK          SERV  WORKLOAD  PAGE  SWAP   VIO SWAPS
+18.50.24 JOB09400  -JSTEP01              00     21      2       .00       .00     .0             3  BATCH        0     0     0     0
+18.50.24 JOB09400  -KC03ABAA ENDED.  NAME-M.Borek              TOTAL TCB CPU TIME=      .00 TOTAL ELAPSED TIME=    .0
+18.50.24 JOB09400  $HASP395 KC03ABAA ENDED - RC=0000
+
+------ JES2 JOB STATISTICS ------
+
+
+  29 JUN 2022 JOB EXECUTION DATE
+
+
+           35 CARDS READ
+
+
+           92 SYSOUT PRINT RECORDS
+
+
+            0 SYSOUT PUNCH RECORDS
+
+
+           10 SYSOUT SPOOL KBYTES
+
+
+         0.00 MINUTES EXECUTION TIME
+!! END OF JES SPOOL FILE !!
+       1 //KC03ABAA JOB ,'M.Borek',MSGCLASS=H                                    JOB09400
+       2 //JSTEP01  EXEC PGM=ASSIST                                                      
+       3 //STEPLIB  DD DSN=KC00NIU.ASSIST.LOADLIB,DISP=SHR                               
+       4 //SYSPRINT DD SYSOUT=*                                                          
+       5 //SYSIN    DD *                                                                 
+!! END OF JES SPOOL FILE !!
+ICH70001I KC03ABA  LAST ACCESS AT 18:50:19 ON WEDNESDAY, JUNE 29, 2022
+IEFA111I KC03ABAA IS USING THE FOLLOWING JOB RELATED SETTINGS:
+         SWA=ABOVE,TIOT SIZE=32K,DSENQSHR=DISALLOW,GDGBIAS=JOB
+IEF236I ALLOC. FOR KC03ABAA JSTEP01
+IGD103I SMS ALLOCATED TO DDNAME STEPLIB
+IEF237I JES2 ALLOCATED TO SYSPRINT
+IEF237I JES2 ALLOCATED TO SYSIN
+IEF142I KC03ABAA JSTEP01 - STEP WAS EXECUTED - COND CODE 0000
+IGD104I KC00NIU.ASSIST.LOADLIB                       RETAINED,  DDNAME=STEPLIB 
+IEF285I   KC03ABA.KC03ABAA.JOB09400.D0000102.?         SYSOUT        
+IEF285I   KC03ABA.KC03ABAA.JOB09400.D0000101.?         SYSIN         
+IEF373I STEP/JSTEP01 /START 2022180.1850
+IEF032I STEP/JSTEP01 /STOP  2022180.1850 
+        CPU:     0 HR  00 MIN  00.00 SEC    SRB:     0 HR  00 MIN  00.00 SEC    
+        VIRT:   584K  SYS:   248K  EXT:        0K  SYS:    11260K
+        ATB- REAL:                  1056K  SLOTS:                     0K
+             VIRT- ALLOC:      13M SHRD:       0M
+IEF375I  JOB/KC03ABAA/START 2022180.1850
+IEF033I  JOB/KC03ABAA/STOP  2022180.1850 
+        CPU:     0 HR  00 MIN  00.00 SEC    SRB:     0 HR  00 MIN  00.00 SEC    
+!! END OF JES SPOOL FILE !!
+
+*** ASSIST 4.0/A2-05/15/82  470/V7A/0:OS/VS2  INS=SDFP7/X=BGHO, CHECK/TRC/=1180, OPTS=CDKMPR FROM PENN ST*NIU COMPSCI*LT            
+
+                                                                                                                                    
+
+                                                                                                               PAGE    1            
+
+  LOC  OBJECT CODE    ADDR1 ADDR2  STMT   SOURCE STATEMENT                                                                          
+                                      1 *****************************************************************                           
+                                      2 *                                                               *                           
+                                      3 *  CSCI 360-1             ASSIGNMENT 3B          SUMMER 2022    *                           
+                                      4 *                                                               *                           
+                                      5 *  PROGRAMMER NAME: MATT BOREK                                  *                           
+                                      6 *                                                               *                           
+                                      7 *  DATE 7/1/2022:                                               *                           
+                                      8 *                                                               *                           
+                                      9 *  PROGRAM NAME: BASIC ASSEMBLER FUNCTIONS AND ADDRESSING TEST  *                           
+                                     10 *                                                               *                           
+                                     11 *  FUNCTION: REWRITE OF ASSIGNMENT 3A WITH ANSWER STORE         *                           
+                                     12 *                                                               *                           
+                                     13 *****************************************************************                           
+                                     14 *                                                                                           
+000000                               15 MAIN     CSECT                                                                              
+000000                               16          USING MAIN,15     ESTABLISH ADDRESSABILITY ON REG 15                               
+000000 5820 F018            00018    17          L     2,NUM1      LOAD NUM1 INTO REG 2                                             
+000004 5830 F01C            0001C    18          L     3,NUM2      LOAD NUM2 INTO REG 3                                             
+000008 1B23                          19          SR    2,3         SUB REG 3 CONTENT FROM REG 2 CONTENT                             
+00000A 5020 F020            00020    20          ST    2,ANSWER    STORE REG 2 CONTENT IN ANSWER                                    
+00000E E060 F020 0004 00020          21          XDUMP ANSWER,4    DUMP CONTENTS OF ANSWER LABEL                                    
+000014 07FE                          22          BCR   B'1111',14  UNCONDITIONAL RETURN TO CALLER (OS)                              
+                                     23 *                                                                                           
+                                     24          LTORG             LITERAL ORGANIZATION                                             
+                                     25 *                                                                                           
+000018 0000000F                      26 NUM1     DC   F'15'        INIT FULLWORD NUM1 EQUAL TO 15                                   
+00001C 00000007                      27 NUM2     DC   F'7'         INIT FULLWORD NUM2 EQUAL TO 7                                    
+000020                               28 ANSWER   DS   F                                                                             
+                                     29 *                                                                                           
+                                     30          END   MAIN                                                                         
+
+***  NO   STATEMENTS FLAGGED -  NO   WARNINGS,  NO   ERRORS                                                                         
+
+*** DYNAMIC CORE AREA USED:  LOW:     884 HIGH:     396 LEAVING:  492288 FREE BYTES. AVERAGE:       41 BYTES/STMT ***               
+
+*** ASSEMBLY TIME =    0.000 SECS,    31000 STATEMENTS/SEC ***                                                                      
+
+*** PROGRAM EXECUTION BEGINNING - ANY OUTPUT BEFORE EXECUTION TIME MESSAGE IS PRODUCED BY USER PROGRAM ***                          
+
+BEGIN XSNAP - CALL     1 AT E0000014 USER STORAGE                                                                                   
+
+                             CORE ADDRESSES SPECIFIED-     000020 TO 000024                                                         
+000020   00000008 F5F5F5F5 F5F5F5F5 00000000    F5F5F5F5 F5F5F5F5 F5F5F5F5 F5F5F5F5   *....55555555....5555555555555555*            
+
+                                                                                                                                    
+
+*** EXECUTION TIME =    0.000 SECS.         6 INSTRUCTIONS EXECUTED -     6000 INSTRUCTIONS/SEC ***                                 
+
+*** FIRST CARD NOT READ: NO CARDS READ:FILE UNOPENED                                                                                
+
+*** AM004 - NORMAL USER TERMINATION BY RETURN ***                                                                                   
+!! END OF JES SPOOL FILE !!
